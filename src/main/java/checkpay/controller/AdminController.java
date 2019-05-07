@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class AdminController {
+
     @Autowired
     UserService service;
 
@@ -30,7 +31,8 @@ public class AdminController {
     /*
 	 * List all existing Users.
      */
-    @RequestMapping(value = {"admin/user/all"}, method = RequestMethod.GET, headers = "Accept=application/json")
+    @RequestMapping(value = {"admin/user/all"}, method = RequestMethod.GET,
+            headers = "Accept=application/json")
     public ResponseEntity<List<User>> listUsers(ModelMap model) {
 
         List<User> users = service.findAllUsers();
@@ -57,7 +59,8 @@ public class AdminController {
     /*
 	 * Add a new User.
      */
-    @RequestMapping(value = "admin/user/add", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "admin/user/add", method = RequestMethod.POST,
+            headers = "Accept=application/json")
     public ResponseEntity<Void> addUser(@RequestBody User user) {
         service.saveUser(user);
 
@@ -68,7 +71,8 @@ public class AdminController {
     /*
 	 * Update an existing User.
      */
-    @RequestMapping(value = {"admin/user/update/{id}"}, method = RequestMethod.PUT, headers = "Accept=application/json")
+    @RequestMapping(value = {"admin/user/update/{id}"}, method = RequestMethod.PUT,
+            headers = "Accept=application/json")
     public ResponseEntity<Void> updateUser(@PathVariable("id") int id, @RequestBody User user) {
         user.setId(id);
         service.updateUser(user);
@@ -78,13 +82,14 @@ public class AdminController {
     }
 
     /*
-        * Delete an User by id.
+        * Delete a User by id.
      */
-    @RequestMapping(value = "admin/user/delete/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+    @RequestMapping(value = "admin/user/delete/{id}", method = RequestMethod.DELETE,
+            headers = "Accept=application/json")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") int id, @RequestBody User user) {
         user.setId(id);
         service.deleteUserById(id);
-       
+
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, HttpStatus.NO_CONTENT);
     }
