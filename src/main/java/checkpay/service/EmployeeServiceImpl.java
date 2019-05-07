@@ -38,7 +38,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             entity.setProfession(employee.getProfession());
             entity.setEmail(employee.getEmail());
             entity.setPassHashed(employee.getPassHashed());
-            //dao.saveOrUpdate(student);
         }
     }
 

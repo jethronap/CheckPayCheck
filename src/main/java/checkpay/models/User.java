@@ -13,8 +13,9 @@ import javax.validation.constraints.Size;
  * @author jnap
  */
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,7 +27,11 @@ public class User {
     @Size(min = 3, max = 50)
     @Column(name = "lname", nullable = false)
     private String lname;
-    
+    @Size(min = 3, max = 50)
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -54,6 +59,14 @@ public class User {
         this.lname = lname;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getPassword() {
         return password;
     }
@@ -64,8 +77,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", fname=" + fname + ", lname=" + lname + ", password=" + password + '}';
+        return "User{" + "id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", password=" + password + '}';
     }
-    
-    
+
+
 }
