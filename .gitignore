@@ -1,0 +1,5 @@
+# Omit target folder with contents
+target/
+# Omit only the certain file
+nb-configuration.xml
+.DS_Store
