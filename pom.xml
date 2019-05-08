@@ -19,7 +19,6 @@
         <tld.version>1.1.2</tld.version>
         <servlets.version>3.1.0</servlets.version>
         <jsp.version>2.3.1</jsp.version>
-        <hsqldb.version>1.8.0.10</hsqldb.version>
         <jackson.version>2.9.8</jackson.version>
     </properties>
     <dependencies>
