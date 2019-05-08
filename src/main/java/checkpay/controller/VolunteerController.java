@@ -82,7 +82,7 @@ public class VolunteerController {
         * Delete a Volunteer by id.
      */
     @RequestMapping(value = "/volunteer/delete/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public ResponseEntity<Void> deleteVolunteer(@PathVariable("id") int id, @RequestBody Volunteer volunteer) {
+    public ResponseEntity<Void> deleteVolunteer(@PathVariable("id") int id, Volunteer volunteer) {
         volunteer.setId(id);
         service.deleteVolunteerById(id);
        
