@@ -208,7 +208,7 @@ public class AdminController {
 	 * Update an existing Volunteer.
      */
     @RequestMapping(value = {"admin/volunteer/update/{id}"}, method = RequestMethod.PUT, headers = "Accept=application/json")
-    public ResponseEntity<Void> updateVolunteer(@PathVariable("id") int id, Volunteer volunteer) {
+    public ResponseEntity<Void> updateVolunteer(@PathVariable("id") int id, @RequestBody Volunteer volunteer) {
         volunteer.setId(id);
         volService.updateVolunteer(volunteer);
 
