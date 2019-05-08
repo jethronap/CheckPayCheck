@@ -86,7 +86,7 @@ public class AdminController {
      */
     @RequestMapping(value = "admin/user/delete/{id}", method = RequestMethod.DELETE,
             headers = "Accept=application/json")
-    public ResponseEntity<Void> deleteUser(@PathVariable("id") int id, @RequestBody User user) {
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") int id, User user) {
         user.setId(id);
         service.deleteUserById(id);
 
