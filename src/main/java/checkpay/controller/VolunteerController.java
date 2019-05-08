@@ -70,7 +70,7 @@ public class VolunteerController {
 	 * Update an existing Volunteer.
      */
     @RequestMapping(value = {"/volunteer/update/{id}"}, method = RequestMethod.PUT, headers = "Accept=application/json")
-    public ResponseEntity<Void> updateVolunteer(@PathVariable("id") int id, @RequestBody Volunteer volunteer) {
+    public ResponseEntity<Void> updateVolunteer(@PathVariable("id") int id, Volunteer volunteer) {
         volunteer.setId(id);
         service.updateVolunteer(volunteer);
 

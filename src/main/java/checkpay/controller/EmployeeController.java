@@ -82,7 +82,7 @@ public class EmployeeController {
         * Delete an Employee by id.
      */
     @RequestMapping(value = "/employee/delete/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
+    public ResponseEntity<Void> deleteEmployee(@PathVariable("id") int id, Employee employee) {
         employee.setId(id);
         service.deleteEmployeeById(id);
        
