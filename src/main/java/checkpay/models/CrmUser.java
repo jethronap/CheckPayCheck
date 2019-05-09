@@ -1,5 +1,7 @@
 package checkpay.models;
 
+import checkpay.constraints.FieldMatch;
+import checkpay.constraints.ValidEmail;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
