@@ -13,7 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-//import org.springframework.context.annotation.Role;
 
 /**
  *
@@ -47,6 +46,21 @@ public class User {
             joinColumns = @JoinColumn(name = "fk_user_id"),
             inverseJoinColumns = @JoinColumn(name = "fk_role_id"))
     private Collection<Role> roles;
+
+    public User(String fname, String lname, String email, String password) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String fname, String lname, String email, String password, Collection<Role> roles) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
 
     public int getId() {
         return id;
