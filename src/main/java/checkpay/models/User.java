@@ -62,6 +62,9 @@ public class User {
         this.roles = roles;
     }
 
+    public User() {
+    }
+
     public int getId() {
         return id;
     }
@@ -105,6 +108,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", password=" + password + '}';
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
 }
