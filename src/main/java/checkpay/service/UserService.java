@@ -1,15 +1,13 @@
 package checkpay.service;
 
-import checkpay.models.CrmUser;
 import checkpay.models.User;
 import java.util.List;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  *
  * @author jnap
  */
-public interface UserService extends UserDetailsService{
+public interface UserService {
     User findById(int id);
 
     void saveUser(User user);
@@ -24,7 +22,7 @@ public interface UserService extends UserDetailsService{
 
     boolean isUserCodeUnique(Integer id, int userId);
     
-    User findUserByEmail(String email);
-    
-    void save(CrmUser crmUser);
+//    User findUserByEmail(String email);
+//    
+//    void save(CrmUser crmUser);
 }

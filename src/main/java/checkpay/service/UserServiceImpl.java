@@ -2,18 +2,9 @@ package checkpay.service;
 
 import checkpay.dao.RoleDao;
 import checkpay.dao.UserDao;
-import checkpay.models.CrmUser;
-import checkpay.models.Role;
 import checkpay.models.User;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -77,7 +68,7 @@ public class UserServiceImpl implements UserService {
         User user = findUserById(ssn);
         return (user == null || ((id != null) && (user.getId() == id)));
     }
-
+/*
     @Override
     @Transactional
     public User findUserByEmail(String email) {
@@ -116,4 +107,5 @@ public class UserServiceImpl implements UserService {
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
+    */
 }
