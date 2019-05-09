@@ -37,7 +37,6 @@ public class VolunteerServiceImpl implements VolunteerService {
             entity.setProfession(volunteer.getProfession());
             entity.setEmail(volunteer.getEmail());
             entity.setPassHashed(volunteer.getPassHashed());
-            //dao.saveOrUpdate(trainer);
         }
     }
 
