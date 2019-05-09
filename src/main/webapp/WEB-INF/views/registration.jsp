@@ -14,7 +14,9 @@
     <head>
         <meta charset="utf-8">
         <title>Create an account</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+              crossorigin="anonymous">
 <!--        <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">-->
         <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
     </head>
@@ -53,10 +55,9 @@
 
         </div>
 
-        <script src="<script
-                src="https://code.jquery.com/jquery-3.4.1.min.js"
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>"></script>
+        crossorigin="anonymous"></script>
 <!--    <script src="${contextPath}/resources/js/bootstrap.min.js"></script>-->
-</body>
+    </body>
 </html>
