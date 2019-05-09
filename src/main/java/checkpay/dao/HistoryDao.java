@@ -17,5 +17,5 @@ public interface HistoryDao {
     void deleteHistoryById(int ssn);
 
     //List<History> findAllVolunteers();
-    History findHistoryById(int ssn);
+    History findHistoryByEmployeeId(int ssn);
 }

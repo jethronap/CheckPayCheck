@@ -46,7 +46,7 @@ public class HistoryServiceImpl implements HistoryService {
 
 
     @Override
-    public History findHistoryById(int ssn) {
-        return dao.findHistoryById(ssn);
+    public History findHistoryByEmployeeId(int ssn) {
+        return dao.findHistoryByEmployeeId(ssn);
     }
 }

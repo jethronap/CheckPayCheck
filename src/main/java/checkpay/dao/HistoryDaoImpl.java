@@ -37,11 +37,11 @@ public class HistoryDaoImpl extends AbstractDao<Integer, History> implements His
     }
 
     @Override
-    public History findHistoryById(int id) {
+    public History findHistoryByEmployeeId(int id) {
         CriteriaBuilder builder = getSession().getCriteriaBuilder();
 		CriteriaQuery<History> criteria = builder.createQuery(History.class);
 		Root<History> root = criteria.from(History.class);
-                criteria.select(root).where(builder.equal(root.get("id"), id));
+                criteria.select(root).where(builder.equal(root.get("fk_empl_id"), id));
                 Query<History> q=getSession().createQuery(criteria);
 		return (History) q.getSingleResult();
     }

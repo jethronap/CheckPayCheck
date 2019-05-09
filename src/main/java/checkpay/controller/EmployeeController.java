@@ -1,7 +1,9 @@
 package checkpay.controller;
 
 import checkpay.models.Employee;
+import checkpay.models.History;
 import checkpay.service.EmployeeService;
+import checkpay.service.HistoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -24,47 +26,13 @@ public class EmployeeController {
 
     @Autowired
     EmployeeService service;
+    
+    @Autowired
+    HistoryService histService;
 
     @Autowired
     MessageSource messageSource;
 
-    /*
-	 * List all existing Employees.
-     */
-    @RequestMapping(value = {"/employee/all"}, method = RequestMethod.GET, headers = "Accept=application/json")
-    public ResponseEntity<List<Employee>> listEmployees(ModelMap model) {
-
-        List<Employee> employees = service.findAllEmployees();
-        if (employees.isEmpty()) {
-            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
-    }
-
-    /*
-        * Find Employee by id.
-     */
-    @RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Employee> getEmployee(@PathVariable("id") int id) {
-        Employee employee = service.findById(id);
-
-        if (employee == null) {
-            return new ResponseEntity<Employee>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<Employee>(employee, HttpStatus.OK);
-    }
-
-    /*
-	 * Add a new Employee.
-     */
-    @RequestMapping(value = "/employee/add", method = RequestMethod.POST, headers = "Accept=application/json")
-    public ResponseEntity<Void> addEmployee(@RequestBody Employee employee) {
-        service.saveEmployee(employee);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-    }
 
     /*
 	 * Update an existing Employee.
@@ -89,5 +57,31 @@ public class EmployeeController {
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, HttpStatus.NO_CONTENT);
     }
+    
+    /*
+	 * Add new History.
+     */
+    @RequestMapping(value = "/employee/{id}/history/add", method = RequestMethod.POST, headers = "Accept=application/json")
+    public ResponseEntity<Void> addHistory(@RequestBody History history) {
+        histService.saveHistory(history);
+
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
+    
+     /*
+        * Find History by id.
+    */
+    @RequestMapping(value = "/employee/history/{id}", method = RequestMethod.GET)
+    public ResponseEntity<History> getHistory(@PathVariable("id") int id) {
+        History history = histService.findHistoryByEmployeeId(id);
+        
+        if (history == null) {
+            return new ResponseEntity<History>(HttpStatus.NOT_FOUND);
+        }
+        
+        return new ResponseEntity<History>(history, HttpStatus.OK);
+    }
+
 }
 

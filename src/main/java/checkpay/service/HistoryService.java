@@ -17,5 +17,5 @@ public interface HistoryService {
     void deleteHistoryById(int id);
 
     //List<History> findAllHistory();
-    History findHistoryById(int id);
+    History findHistoryByEmployeeId(int id);
 }
