@@ -95,8 +95,8 @@ public class UserServiceImpl implements UserService {
         user.setLname(crmUser.getLastName());
         user.setEmail(crmUser.getEmail());
 
-        // give user default role of "employee"
-        user.setRoles(Arrays.asList(roleDao.findRoleByName("ROLE_EMPLOYEE")));
+        // give user default role of "admin"
+        user.setRoles(Arrays.asList(roleDao.findRoleByName("admin")));
 
         // save user in the database
         dao.saveUser(user);
