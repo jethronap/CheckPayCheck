@@ -22,14 +22,14 @@
               href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <link rel="stylesheet"
-              href="${pageContext.request.contextPath}/static/css/loginform.css">
+              href="/static/css/loginform.css">
     </head>
 
     <body>
         <div class="wrapper">
 
             <!-- Login Form -->
-            <form action="${pageContext.request.contextPath}/authenticateTheUser"
+            <form action="${pageContext.request.contextPath}/admin/user/all"
                   method="POST" class="form-horizontal">
 
                 <!-- Place for messages: error, alert etc ... -->
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-element">
                         <span><i class="fa fa-envelope"></i></span><input type="text"
-                                                                          name="username" placeholder="Your Username" />
+                                                                          name="username" placeholder="Your Email" />
                     </div>
                     <div class="form-element">
                         <span><i class="fa fa-lock"></i></span><input type="password"
@@ -89,7 +89,7 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script src="${pageContext.request.contextPath}/static/js/loginform.js"></script>
+        <script src="/static/js/loginform.js"></script>
     </body>
 
 </html>

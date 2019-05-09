@@ -34,7 +34,7 @@ public class CrmUser {
     @Size(min = 1, message = "is required")
     private String lastName;
 
-    @ValidEmail
+    //@ValidEmail
     @NotNull(message = "is required")
     @Size(min = 1, message = "is required")
     private String email;
