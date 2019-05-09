@@ -1,10 +1,14 @@
 package checkpay.models;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -38,6 +42,10 @@ public class Employee {
 
     @Column(name = "passHashed", nullable = false)
     private String passHashed;
+
+    @OneToMany
+    @JoinColumn(name = "fk_empl_id")
+    private Set<History> histories = new HashSet<History>();
 
     public int getId() {
         return id;
@@ -90,6 +98,14 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" + "id=" + id + ", fname=" + fname + ", lname=" + lname + ", profession=" + profession + ", email=" + email + ", passHashed=" + passHashed + '}';
+    }
+
+    public Set<History> getHistories() {
+        return histories;
+    }
+
+    public void setHistories(Set<History> histories) {
+        this.histories = histories;
     }
 
 }
