@@ -3,6 +3,7 @@ package checkpay.service;
 import checkpay.dao.RoleDao;
 import checkpay.dao.UserDao;
 import checkpay.models.User;
+import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -67,6 +68,18 @@ public class UserServiceImpl implements UserService {
     public boolean isUserCodeUnique(Integer id, int ssn) {
         User user = findUserById(ssn);
         return (user == null || ((id != null) && (user.getId() == id)));
+    }
+    
+    @Override
+    public void save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(new HashSet<>(roleDao.findAll()));
+        dao.saveUser(user);
+    }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return dao.findUserByEmail(email);
     }
 /*
     @Override

@@ -1,6 +1,7 @@
 package checkpay.dao;
 
 import checkpay.models.Role;
+import java.util.List;
 
 /**
  *
@@ -8,5 +9,5 @@ import checkpay.models.Role;
  */
 public interface RoleDao {
 
-    public Role findRoleByName(String name);
+    List<Role> findAll();
 }

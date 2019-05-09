@@ -22,7 +22,7 @@ public interface UserService {
 
     boolean isUserCodeUnique(Integer id, int userId);
     
-//    User findUserByEmail(String email);
+    User findUserByEmail(String email);
 //    
-//    void save(CrmUser crmUser);
+    void save(User crmUser);
 }
