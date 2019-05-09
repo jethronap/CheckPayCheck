@@ -55,11 +55,7 @@
                     </div>
                 </div>
                 <div class="login is-active">
-                    <!-- Username -->
-                    <div class="form-element">
-                        <form:errors path="userName" cssClass="error" />
-                        <form:input path="userName" placeholder="username (*)" />
-                    </div>
+
                     <!-- Password -->
                     <div class="form-element">
                         <form:errors path="password" cssClass="error" />
