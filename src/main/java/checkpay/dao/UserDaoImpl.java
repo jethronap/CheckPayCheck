@@ -7,6 +7,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -21,8 +22,10 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
     @Override
+    @Transactional
     public void save(User user) {
         persist(user);
+
     }
 
     @Override
@@ -56,7 +59,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         Query<User> q = getSession().createQuery(criteria);
         return (User) q.getSingleResult();
     }
-    
+
     @Override
     public User findByUsername(String username) {
         CriteriaBuilder builder = getSession().getCriteriaBuilder();
