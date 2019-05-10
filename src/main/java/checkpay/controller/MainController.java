@@ -107,8 +107,8 @@ public class MainController {
      * This method will provide the medium to update an existing user.
      */
     @RequestMapping(value = {"/admin/edit/user/{id}"}, method = RequestMethod.GET)
-    public String editUser(@PathVariable String username, ModelMap model) {
-        User user = userService.findByUsername(username);
+    public String editUser(@PathVariable int id, ModelMap model) {
+        User user = userService.findById(id);
         model.addAttribute("user", user);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
@@ -121,7 +121,7 @@ public class MainController {
      */
     @RequestMapping(value = {"/admin/edit/user/{id}"}, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
-            ModelMap model, @PathVariable String username) {
+            ModelMap model, @PathVariable int id) {
 
         if (result.hasErrors()) {
             return "registration";
