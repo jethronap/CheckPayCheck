@@ -1,7 +1,21 @@
 package checkpay.dao;
 
 import checkpay.models.Role;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-public interface RoleDao extends JpaRepository<Role, Long> {
+public interface RoleDao {
+
+    List<Role> findAll();
+
+    Role findById(int id);
+
+    void save(Role role);
+
+    public void saveOrUpdate(Role role);
+
+    void deleteRoleById(int ssn);
+
+    Role findRoleById(int ssn);
+
+    Role findByRoleName(String name);
 }
