@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author jnap
  */
-
 @Controller
 @RequestMapping("/")
 public class MainController {
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/index"}, method = RequestMethod.GET)
     public String showIntro() {
         return "index";
     }

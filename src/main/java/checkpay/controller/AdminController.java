@@ -41,68 +41,68 @@ public class AdminController {
     /*
 	 * List all existing Users.
      */
-    @RequestMapping(value = {"admin/user/all"}, method = RequestMethod.GET,
-            headers = "Accept=application/json")
-    public ResponseEntity<List<User>> listUsers(ModelMap model) {
-
-        List<User> users = service.findAllUsers();
-        if (users.isEmpty()) {
-            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
-    }
-
-    /*
-        * Find User by id.
-     */
-    @RequestMapping(value = "admin/user/{id}", method = RequestMethod.GET)
-    public ResponseEntity<User> getUser(@PathVariable("id") int id) {
-        User user = service.findById(id);
-
-        if (user == null) {
-            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<User>(user, HttpStatus.OK);
-    }
-
-    /*
-	 * Add a new User.
-     */
-    @RequestMapping(value = "admin/user/add", method = RequestMethod.POST,
-            headers = "Accept=application/json")
-    public ResponseEntity<Void> addUser(@RequestBody User user) {
-        service.saveUser(user);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-    }
-
-    /*
-	 * Update an existing User.
-     */
-    @RequestMapping(value = {"admin/user/update/{id}"}, method = RequestMethod.PUT,
-            headers = "Accept=application/json")
-    public ResponseEntity<Void> updateUser(@PathVariable("id") int id, @RequestBody User user) {
-        user.setId(id);
-        service.updateUser(user);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.OK);
-    }
-
-    /*
-        * Delete a User by id.
-     */
-    @RequestMapping(value = "admin/user/delete/{id}", method = RequestMethod.DELETE,
-            headers = "Accept=application/json")
-    public ResponseEntity<Void> deleteUser(@PathVariable("id") int id, User user) {
-        user.setId(id);
-        service.deleteUserById(id);
-
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, HttpStatus.NO_CONTENT);
-    }
+//    @RequestMapping(value = {"admin/user/all"}, method = RequestMethod.GET,
+//            headers = "Accept=application/json")
+//    public ResponseEntity<List<User>> listUsers(ModelMap model) {
+//
+//        List<User> users = service..findAllUsers();
+//        if (users.isEmpty()) {
+//            return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+//    }
+//
+//    /*
+//        * Find User by id.
+//     */
+//    @RequestMapping(value = "admin/user/{id}", method = RequestMethod.GET)
+//    public ResponseEntity<User> getUser(@PathVariable("id") int id) {
+//        User user = service.findById(id);
+//
+//        if (user == null) {
+//            return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+//        }
+//
+//        return new ResponseEntity<User>(user, HttpStatus.OK);
+//    }
+//
+//    /*
+//	 * Add a new User.
+//     */
+//    @RequestMapping(value = "admin/user/add", method = RequestMethod.POST,
+//            headers = "Accept=application/json")
+//    public ResponseEntity<Void> addUser(@RequestBody User user) {
+//        service.saveUser(user);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//    }
+//
+//    /*
+//	 * Update an existing User.
+//     */
+//    @RequestMapping(value = {"admin/user/update/{id}"}, method = RequestMethod.PUT,
+//            headers = "Accept=application/json")
+//    public ResponseEntity<Void> updateUser(@PathVariable("id") int id, @RequestBody User user) {
+//        user.setId(id);
+//        service.updateUser(user);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        return new ResponseEntity<Void>(headers, HttpStatus.OK);
+//    }
+//
+//    /*
+//        * Delete a User by id.
+//     */
+//    @RequestMapping(value = "admin/user/delete/{id}", method = RequestMethod.DELETE,
+//            headers = "Accept=application/json")
+//    public ResponseEntity<Void> deleteUser(@PathVariable("id") int id, User user) {
+//        user.setId(id);
+//        service.deleteUserById(id);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        return new ResponseEntity<Void>(headers, HttpStatus.NO_CONTENT);
+//    }
     
     /*
 	 * List all existing Employees.

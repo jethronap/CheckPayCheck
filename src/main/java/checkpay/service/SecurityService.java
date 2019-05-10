@@ -1,9 +1,5 @@
 package checkpay.service;
 
-/**
- *
- * @author jnap
- */
 public interface SecurityService {
 
     String findLoggedInUsername();

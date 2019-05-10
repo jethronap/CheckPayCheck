@@ -1,26 +1,10 @@
 package checkpay.dao;
 
 import checkpay.models.User;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author jnap
- */
-public interface UserDao {
+public interface UserDao extends JpaRepository<User, Long> {
 
-    User findById(int id);
-
-    void saveUser(User user);
-
-    public void saveOrUpdate(User user);
-
-    void deleteUserById(int ssn);
-
-    List<User> findAllUsers();
-
-    User findUserById(int ssn);
-
-    User findUserByEmail(String email);
-
+    //void save(User user);
+    User findByUsername(String username);
 }
