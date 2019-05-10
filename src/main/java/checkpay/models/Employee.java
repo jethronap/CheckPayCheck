@@ -43,9 +43,9 @@ public class Employee {
     @Column(name = "passHashed", nullable = false)
     private String passHashed;
 
-    @OneToMany(mappedBy="employee")
-    @JoinColumn(name = "fk_empl_id")
-    private Set<History> histories = new HashSet<History>();
+//    @OneToMany()
+//    @JoinColumn(name = "fk_empl_id")
+//    private Set<History> histories = new HashSet<History>();
 
     public int getId() {
         return id;
@@ -100,12 +100,12 @@ public class Employee {
         return "Employee{" + "id=" + id + ", fname=" + fname + ", lname=" + lname + ", profession=" + profession + ", email=" + email + ", passHashed=" + passHashed + '}';
     }
 
-    public Set<History> getHistories() {
-        return histories;
-    }
-
-    public void setHistories(Set<History> histories) {
-        this.histories = histories;
-    }
+//    public Set<History> getHistories() {
+//        return histories;
+//    }
+//
+//    public void setHistories(Set<History> histories) {
+//        this.histories = histories;
+//    }
 
 }
