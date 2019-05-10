@@ -119,7 +119,7 @@ public class MainController {
      * This method will be called on form submission, handling POST request for
      * updating user in database. It also validates the user input
      */
-    @RequestMapping(value = {"/admin/edit/user{id}"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/admin/edit/user/{id}"}, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
             ModelMap model, @PathVariable String username) {
 
@@ -143,7 +143,7 @@ public class MainController {
     /**
      * This method will delete an user by it's SSOID value.
      */
-    @RequestMapping(value = {"/admin/delete/user{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/admin/delete/user/{id}"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable int id) {
         userService.deleteUserById(id);
         return "redirect:/admin/list";
