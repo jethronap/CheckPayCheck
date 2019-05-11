@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  *
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/")
+@SessionAttributes("roles")
 public class MainController {
 
     @Autowired
@@ -150,7 +152,7 @@ public class MainController {
     }
 
     /**
-     * This method will provide UserProfile list to views
+     * This method will provide Role list to views
      */
     @ModelAttribute("roles")
     public List<Role> initializeProfiles() {
@@ -211,6 +213,6 @@ public class MainController {
 
     @GetMapping(value = {"/", "/index"})
     public String showIntro() {
-        return "index";
+        return "welcome";
     }
 }
