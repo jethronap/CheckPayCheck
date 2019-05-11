@@ -46,7 +46,7 @@
 	
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="username">USERNAME</label>
+					<label class="col-md-3 control-lable" for="username">Username</label>
 					<div class="col-md-7">
 						<c:choose>
 							<c:when test="${edit}">

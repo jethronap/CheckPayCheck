@@ -35,7 +35,7 @@ public class User {
     private String email;
 
     @NotEmpty
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = {
                 @JoinColumn(name = "user_id")},

@@ -4,11 +4,14 @@ import checkpay.models.Role;
 import checkpay.models.User;
 import checkpay.service.RoleService;
 import checkpay.service.UserService;
+
 import java.util.List;
 import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -75,7 +78,7 @@ public class MainController {
 	 * saving user in database. It also validates the user input
 	 */
 	@RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
-	public String saveUser(@Valid User user, BindingResult result,
+	public String save(@Valid User user, BindingResult result,
 			ModelMap model) {
 
 		if (result.hasErrors()) {

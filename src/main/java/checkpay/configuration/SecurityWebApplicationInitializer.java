@@ -6,6 +6,6 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  *
  * @author jnap
  */
-public class MySecurityWebAppInitializer extends AbstractSecurityWebApplicationInitializer{
+public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer{
     
 }
