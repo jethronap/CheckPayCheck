@@ -8,8 +8,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Users List</title>
-	<link href="<c:url value='/resources/css/bootstrap.css' />" rel="stylesheet"></link>
-	<link href="<c:url value='/resources/css/app.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/resources/css/bootstrap.css' />" rel="stylesheet" type="text/css"></link>
+	<link href="<c:url value='/resources/css/app.css' />" rel="stylesheet" type="text/css"></link>
 </head>
 
 <body>
@@ -25,10 +25,10 @@
 				        <th>Lastname</th>
 				        <th>Email</th>
 				        <th>Username</th>
-				        <sec:authorize access="hasRole('ADMIN') or hasRole('EMPLOYEE')">
+				        <sec:authorize access="hasRole('admin') or hasRole('employee')">
 				        	<th width="100"></th>
 				        </sec:authorize>
-				        <sec:authorize access="hasRole('ADMIN')">
+				        <sec:authorize access="hasRole('admin')">
 				        	<th width="100"></th>
 				        </sec:authorize>
 				        
@@ -37,24 +37,24 @@
 	    		<tbody>
 				<c:forEach items="${users}" var="user">
 					<tr>
-						<td>${user.firstName}</td>
-						<td>${user.lastName}</td>
+						<td>${user.fname}</td>
+						<td>${user.lname}</td>
 						<td>${user.email}</td>
 						<td>${user.username}</td>
-					    <sec:authorize access="hasRole('ADMIN') or hasRole('EMPLOYEE')">
-							<td><a href="<c:url value='/admin/edit/user/${user.id}' />" class="btn btn-success custom-width">edit</a></td>
+					    <sec:authorize access="hasRole('admin') or hasRole('employee')">
+							<td><a href="<c:url value='/edit-user-${user.id}' />" class="btn btn-success custom-width">edit</a></td>
 				        </sec:authorize>
 				        <sec:authorize access="hasRole('ADMIN')">
-							<td><a href="<c:url value='/admin/delete/user/${user.id}' />" class="btn btn-danger custom-width">delete</a></td>
+							<td><a href="<c:url value='/delete-user-${user.id}' />" class="btn btn-danger custom-width">delete</a></td>
         				</sec:authorize>
 					</tr>
 				</c:forEach>
 	    		</tbody>
 	    	</table>
 		</div>
-		<sec:authorize access="hasRole('ADMIN')">
+		<sec:authorize access="hasRole('admin')">
 		 	<div class="well">
-		 		<a href="<c:url value='/admin/newuser' />">Add New User</a>
+		 		<a href="<c:url value='newuser' />">Add New User</a>
 		 	</div>
 	 	</sec:authorize>
    	</div>

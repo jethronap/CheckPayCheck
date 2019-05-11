@@ -16,19 +16,22 @@ import org.springframework.stereotype.Component;
  * A converter class used in views to map id's to actual role objects.
  */
 @Component
-public class RoleToUserProfileConverter implements Converter<Object, Role>{
+public class RoleToUserProfileConverter implements Converter<Object, Role> {
+
     static final Logger logger = LoggerFactory.getLogger(RoleToUserProfileConverter.class);
     @Autowired
-	RoleService roleService;
+    RoleService roleService;
 
-	/**
-	 * Gets Role by Id
-	 * @see org.springframework.core.convert.converter.Converter#convert(java.lang.Object)
-	 */
-	public Role convert(Object element) {
-		Integer id = Integer.parseInt((String)element);
-		Role role= roleService.findById(id);
-		logger.info("Role : {}",role);
-		return role;
-	}
+    /**
+     * Gets Role by Id
+     *
+     * @see
+     * org.springframework.core.convert.converter.Converter#convert(java.lang.Object)
+     */
+    public Role convert(Object element) {
+        Integer id = Integer.parseInt((String) element);
+        Role profile = roleService.findById(id);
+        logger.info("Role : {}", profile);
+        return profile;
+    }
 }

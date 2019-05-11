@@ -22,7 +22,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
     @Override
-    @Transactional
+    //@Transactional
     public void save(User user) {
         persist(user);
 

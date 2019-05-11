@@ -33,6 +33,25 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/", "/list").access("hasRole('admin')")
+                .antMatchers("/newuser/**", "/delete-user-*").access("hasRole('admin')")
+                .antMatchers("/edit-user-*").access("hasRole('admin') or hasRole('employee')")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .and()
+                //.rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
+                //.tokenValiditySeconds(86400)
+                //.and()
+                .csrf()
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/Access_Denied");
+                /*
+                .authorizeRequests()
                 .antMatchers("/resources/**", "/registration").permitAll()
                 .antMatchers("/employee").hasRole("employee")
                 .antMatchers("/volunteer/**").hasRole("volunteer")
@@ -45,6 +64,7 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
+                */
     }
 
     @Bean
