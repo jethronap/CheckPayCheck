@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import org.hibernate.Hibernate;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,6 +68,11 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         Root<User> root = criteria.from(User.class);
         criteria.select(root).where(builder.equal(root.get("username"), username));
         Query<User> q = getSession().createQuery(criteria);
-        return (User) q.getSingleResult();
+        // this line is used to avoif no entity found for wuery that comes from getSingleResult() exceptions
+        User user = (User) q.getResultList().stream().findFirst().orElse(null);
+        if (user != null) {
+            Hibernate.initialize(user.getRoles());
+        }
+        return user;
     }
 }
