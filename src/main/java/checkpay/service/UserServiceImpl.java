@@ -1,7 +1,9 @@
 package checkpay.service;
 
+import checkpay.dao.RoleDao;
 import checkpay.models.User;
 import checkpay.dao.UserDao;
+import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userdao;
-//    @Autowired
-//    private RoleDao roleDao;
+    @Autowired
+    private RoleDao roleDao;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -26,9 +28,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void save(User user) {
+        user.setUsername(user.getUsername());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        //user.setRoles(new HashSet<>(roleDao.findAll()));
+        user.setFname(user.getFname());
+        user.setLname(user.getLname());
+        user.setEmail(user.getEmail());
+        user.setRoles(new HashSet<>(roleDao.findAll()));
         userdao.save(user);
     }
 
