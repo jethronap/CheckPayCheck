@@ -68,7 +68,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         Root<User> root = criteria.from(User.class);
         criteria.select(root).where(builder.equal(root.get("username"), username));
         Query<User> q = getSession().createQuery(criteria);
-        // this line is used to avoif no entity found for wuery that comes from getSingleResult() exceptions
+        // this line is used to avoid 'no entity found for query' that comes from getSingleResult() exceptions
         User user = (User) q.getResultList().stream().findFirst().orElse(null);
         if (user != null) {
             Hibernate.initialize(user.getRoles());
