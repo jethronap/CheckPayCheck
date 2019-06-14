@@ -43,7 +43,7 @@ public class Employee {
     @Column(name = "passHashed", nullable = false)
     private String passHashed;
 
-//    @OneToMany()
+//>>>>>>> security_branch
 //    @JoinColumn(name = "fk_empl_id")
 //    private Set<History> histories = new HashSet<History>();
 

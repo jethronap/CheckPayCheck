@@ -3,15 +3,11 @@ package checkpay.dao;
 import checkpay.models.User;
 import java.util.List;
 
-/**
- *
- * @author jnap
- */
 public interface UserDao {
 
     User findById(int id);
 
-    void saveUser(User user);
+    void save(User user);
 
     public void saveOrUpdate(User user);
 
@@ -20,4 +16,6 @@ public interface UserDao {
     List<User> findAllUsers();
 
     User findUserById(int ssn);
+
+    User findByUsername(String username);
 }

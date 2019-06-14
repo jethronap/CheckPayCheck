@@ -3,14 +3,13 @@ package checkpay.service;
 import checkpay.models.User;
 import java.util.List;
 
-/**
- *
- * @author jnap
- */
 public interface UserService {
+
     User findById(int id);
 
-    void saveUser(User user);
+    User findByUsername(String username);
+
+    void save(User user);
 
     void updateUser(User user);
 
@@ -18,7 +17,5 @@ public interface UserService {
 
     List<User> findAllUsers();
 
-    User findUserById(int id);
-
-    boolean isUserCodeUnique(Integer id, int userId);
+    boolean isUserUsernameUnique(Integer id, String username);
 }
