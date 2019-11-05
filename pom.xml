@@ -19,7 +19,7 @@
         <tld.version>1.1.2</tld.version>
         <servlets.version>3.1.0</servlets.version>
         <jsp.version>2.3.1</jsp.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.10.0</jackson.version>
     </properties>
     <dependencies>
         <!-- Spring MVC Dependency -->
