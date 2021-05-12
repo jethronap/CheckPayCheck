@@ -11,7 +11,7 @@
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.2.9.RELEASE</spring.version>
+        <spring.version>5.2.10.RELEASE</spring.version>
         <hibernate.version>5.3.5.Final</hibernate.version>
         <hibernate.validator>5.4.2.Final</hibernate.validator>
         <c3p0.version>0.9.5.2</c3p0.version>
